@@ -21,6 +21,8 @@ const postDB = (req, res) => {
 const putDB = (req, res) => {
   const { _id, title, description } = req.body
 
+  console.log(_id+ title+ description)
+
   if (!!_id) {
     CRUDAction.findByIdAndUpdate(_id, {title, description})
       .then(result => res.status(200).json({message: result, changeTo: {
